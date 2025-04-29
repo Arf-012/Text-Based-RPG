@@ -1,13 +1,13 @@
 import random
+import role.role as Role
 
 class Player:
-    def __init__(self, name="Zidan", element="Fire", role="Warrior"):
+    def __init__(self, name="Zidan", element="Fire", role=None):
         self.name = name
         self.element = element
-        self.role = role
+        self.role = role or Role.Role("None", "No role", {})  # Default role
         self.id = 1
 
-        # Base stats
         self.attributes = {
             'level': 1,
             'xp': 0,
@@ -23,6 +23,13 @@ class Player:
             'Speed': 20
         }
 
+        # Apply role bonuses
+        for stat, bonus in self.role.bonuses.items():
+            if stat in self.attributes:
+                self.attributes[stat] += bonus
+            else:
+                self.attributes[stat] = bonus
+
         # Max values
         self.max_health = 100
         self.max_mana = 10
@@ -33,6 +40,7 @@ class Player:
         self.gold = 0
 
         self.is_dead = False
+        self.status_effects = []
 
     def gain_xp(self, amount):
         self.attributes['xp'] += amount
@@ -69,6 +77,22 @@ class Player:
 
         if self.attributes['Stamina'] < self.max_stamina * 0.15:
             print("⚠️ Fatigue! Stamina debuff applied.")
+
+    def take_damage(self, amount):
+        self.attributes['Health'] -= amount
+        print(f"{self.name} took {amount} damage. Remaining HP: {self.attributes['Health']}")
+        self.apply_debuff_check()
+
+    def add_status_effect(self, effect):
+        self.status_effects.append(effect)
+        print(f"{self.name} is now affected by {type(effect).__name__}!")
+
+    def process_status_effects(self):
+        for effect in self.status_effects[:]:  # Salinan list biar aman hapus saat looping
+            effect.apply(self)
+            if effect.duration <= 0:
+                self.status_effects.remove(effect)
+                print(f"{type(effect).__name__} has worn off from {self.name}.")
 
 class Inventory:
     def __init__(self):
