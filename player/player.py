@@ -15,10 +15,10 @@ class Player:
             'stat_points': 0,
             'Health': 100,
             'Mana': 10,
-            'Magic Power': 0,
-            'Physical Power': 10,
-            'Physical Defense': 15,
-            'Magic Defense': 5,
+            'Magic_Power': 0,
+            'Physical_Power': 10,
+            'Physical_Defense': 15,
+            'Magic_Defense': 5,
             'Stamina': 100,
             'Speed': 20
         }

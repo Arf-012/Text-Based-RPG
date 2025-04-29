@@ -6,7 +6,7 @@ class Goblin:
         self.attributes = {
             'level': 1,
             'xp': 20,
-            'Health': 100,
+            'Health': 1000,
             'Mana': 5,
             'Strength': 10,
             'Defense': 5,
