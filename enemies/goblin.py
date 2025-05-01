@@ -27,8 +27,6 @@ class Goblin:
         self.gold = 10
 
         self.is_dead = False
-
-        # NEW: Status effect list
         self.status_effects = []
 
     def take_damage(self, amount):

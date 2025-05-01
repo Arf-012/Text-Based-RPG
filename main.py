@@ -1,6 +1,7 @@
 import sys
 import os
 import time
+import player.player as Player
 
 screen_width = 100
 
@@ -54,6 +55,13 @@ def start_game():
     os.system('cls' if os.name == 'nt' else 'clear')
     slow_print("Starting new game...", 0.05)
     time.sleep(2)
+    title_screen()
+    
+def player_creations():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    slow_print("Select your character:", 0.05)
+    time.sleep(1)
+    print()
     title_screen()
 
 if __name__ == "__main__":
