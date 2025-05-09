@@ -56,6 +56,12 @@ def start_game():
     slow_print("Starting new game...", 0.05)
     time.sleep(2)
     title_screen()
+    
+if __name__ == "__play__":
+    os.system('cls' if os.name == 'nt' else 'clear')
+    slow_print("Starting new game...", 0.05)
+    time.sleep(2)
+    title_screen()
 
 if __name__ == "__main__":
     title_screen()

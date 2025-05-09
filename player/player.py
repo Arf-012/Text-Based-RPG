@@ -7,6 +7,7 @@ class Player:
         self.element = element
         self.role = role or Role.Role("None", "No role", {})  # Default role
         self.id = 1
+        self.location = 'Start'
 
         self.attributes = {
             'level': 1,
