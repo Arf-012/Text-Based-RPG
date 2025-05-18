@@ -3,6 +3,8 @@ import os
 import time
 import player.player as Player
 
+Player = Player.Player()
+
 screen_width = 100
 
 def slow_print(text, delay=0.03):
@@ -54,12 +56,10 @@ def help_menu():
 def start_game():
     os.system('cls' if os.name == 'nt' else 'clear')
     slow_print("Starting new game...", 0.05)
-    time.sleep(2)
-    title_screen()
-    
-if __name__ == "__play__":
-    os.system('cls' if os.name == 'nt' else 'clear')
-    slow_print("Starting new game...", 0.05)
+    name = input("Masukkan nama karaktermu: ")
+    role = choose_role()
+    player = Player(name=name, role=role)
+    print(f"\nSelamat datang, {player.name} sang {player.role['name']}!")
     time.sleep(2)
     title_screen()
 

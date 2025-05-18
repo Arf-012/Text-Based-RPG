@@ -1,4 +1,5 @@
 from skills.status_effect.burn import Burn
+import player.player as Player
 
 class Fireball:
     def __init__(self):

@@ -2,10 +2,10 @@ import random
 import role.role as Role
 
 class Player:
-    def __init__(self, name="Zidan", element="Fire", role=None):
+    def __init__(self, name, element, role):
         self.name = name
         self.element = element
-        self.role = role or Role.Role("None", "No role", {})  # Default role
+        self.role = role or Role.Role({})  # Default role
         self.id = 1
         self.location = 'Start'
 
